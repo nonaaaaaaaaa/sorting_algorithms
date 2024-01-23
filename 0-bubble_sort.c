@@ -7,10 +7,11 @@
  */
 void swap_ints(int *a, int *b)
 {
-    int tmp;
-    tmp = *a;
-    *a = *b;
-    *b = tmp;
+	int tmp;
+
+	tmp = *a;
+	*a = *b;
+	*b = tmp;
 }
 
 /**
@@ -20,15 +21,15 @@ void swap_ints(int *a, int *b)
  */
 void print_array(const int *array, size_t size)
 {
-    for (size_t i = 0; i < size; i++)
-    {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
+	for (size_t i = 0; i < size; i++)
+	{
+	printf("%d ", array[i]);
+	}
+	printf("\n");
 }
 
 /**
- * bubble_sort - Sort an array of integers in ascending order using Bubble Sort.
+ * bubble_sort - Sort an array of integers in ascending order using Bubble Sort
  * @array: An array of integers to sort.
  * @size: The size of the array.
  *
@@ -36,31 +37,26 @@ void print_array(const int *array, size_t size)
  */
 void bubble_sort(int *array, size_t size)
 {
-    size_t i, len = size;
-    bool bubbly = false;
+	size_t i, len = size;
+	bool bubbly = false;
 
-    // Check if the array is NULL or has less than 2 elements
-    if (array == NULL || size < 2)
-        return;
+	if (array == NULL || size < 2)
+	return;
 
-    // Continue the loop until no more swaps are needed
-    while (!bubbly)
-    {
-        bubbly = true;
+	while (!bubbly)
+	{
+	bubbly = true;
 
-        // Iterate through the array and swap adjacent elements if needed
-        for (i = 0; i < len - 1; i++)
-        {
-            if (array[i] > array[i + 1])
-            {
-                // Swap elements and print the array
-                swap_ints(&array[i], &array[i + 1]);
-                print_array(array, size);
-                bubbly = false;
-            }
-        }
+	for (i = 0; i < len - 1; i++)
+	{
+	if (array[i] > array[i + 1])
+	{
+	swap_ints(&array[i], &array[i + 1]);
+	print_array(array, size);
+	bubbly = false;
+	}
+	}
 
-        // Decrease the length of the array to exclude the last sorted element
-        len--;
-    }
+	len--;
+	}
 }
