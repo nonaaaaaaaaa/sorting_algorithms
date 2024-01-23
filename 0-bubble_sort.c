@@ -15,21 +15,7 @@ void swap_ints(int *a, int *b)
 }
 
 /**
- * print_array - Print the elements of an array.
- * @array: The array to print.
- * @size: The size of the array.
- */
-void print_array(const int *array, size_t size)
-{
-	for (size_t i = 0; i < size; i++)
-	{
-	printf("%d ", array[i]);
-	}
-	printf("\n");
-}
-
-/**
- * bubble_sort - Sort an array of integers in ascending order using Bubble Sort
+ * bubble_sort - Sort an array of integers in ascending order.
  * @array: An array of integers to sort.
  * @size: The size of the array.
  *
@@ -41,22 +27,20 @@ void bubble_sort(int *array, size_t size)
 	bool bubbly = false;
 
 	if (array == NULL || size < 2)
-	return;
+		return;
 
-	while (!bubbly)
+	while (bubbly == false)
 	{
-	bubbly = true;
-
-	for (i = 0; i < len - 1; i++)
-	{
-	if (array[i] > array[i + 1])
-	{
-	swap_ints(&array[i], &array[i + 1]);
-	print_array(array, size);
-	bubbly = false;
-	}
-	}
-
-	len--;
+		bubbly = true;
+		for (i = 0; i < len - 1; i++)
+		{
+			if (array[i] > array[i + 1])
+			{
+				swap_ints(array + i, array + i + 1);
+				print_array(array, size);
+				bubbly = false;
+			}
+		}
+		len--;
 	}
 }
